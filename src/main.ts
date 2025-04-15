@@ -32,9 +32,6 @@ export function run() {
         const output_joiner = core.getInput('output_joiner');
 
         const groups = group.length === 0 ? [] : group.split(',');
-        console.debug(`message: ${message}`);
-        console.debug(`regex: ${regex}`);
-        console.debug(`groups: ${groups}`);
         const result = doRegex(message, regex, groups);
 
         core.setOutput("matched", result.matched);
