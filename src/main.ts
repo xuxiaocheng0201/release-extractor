@@ -23,11 +23,12 @@ function doRegex(message: string, regex: string, groups: string[]): { matched: b
     return { matched: true, values: values, }
 }
 
-function run() {
+export function run() {
     try {
         const message = core.getInput('message');
         const regex = core.getInput('regex');
         const group = core.getInput('group');
+        const output_joiner = core.getInput('output_joiner');
 
         const groups = group.length === 0 ? [] : group.split(',');
         console.debug(`message: ${message}`);
@@ -36,10 +37,8 @@ function run() {
         const result = doRegex(message, regex, groups);
 
         core.setOutput("matched", result.matched);
-        core.setOutput("values", result.values.join("@@REA@@"));
+        core.setOutput("values", result.values.join("output_joiner"));
     } catch (error: unknown) {
         core.setFailed((error as Error).message);
     }
 }
-
-run();

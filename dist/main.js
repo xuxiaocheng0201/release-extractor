@@ -33,6 +33,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.run = run;
 const core = __importStar(require("@actions/core"));
 function doRegex(message, regex, groups) {
     const reg = RegExp(regex, 'g');
@@ -61,9 +62,6 @@ function run() {
         const message = core.getInput('message');
         const regex = core.getInput('regex');
         const group = core.getInput('group');
-        // const message = "[build] Release v0.0.0";
-        // const regex = "Release v(?<version>[0-9]+\\.[0-9]+\\.[0-9]+)";
-        // const group = "version";
         const groups = group.length === 0 ? [] : group.split(',');
         console.debug(`message: ${message}`);
         console.debug(`regex: ${regex}`);
@@ -76,4 +74,3 @@ function run() {
         core.setFailed(error.message);
     }
 }
-run();

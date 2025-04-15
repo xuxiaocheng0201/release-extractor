@@ -6,7 +6,8 @@
   "license": "MIT",
   "main": "src/main.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "local-action run . src/main.ts .env"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "dependencies": {
     "typescript": "^5.8.3",
     "@actions/core": "^1.11.1"
+  },
+  "devDependencies": {
+    "@github/local-action": "^3.1.4"
   }
 }

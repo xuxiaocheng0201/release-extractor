@@ -10,4 +10,5 @@
 !/tsconfig.json
 
 !/action.yml
+!/.env
 !/dist

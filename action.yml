@@ -15,11 +15,15 @@ inputs:
     description: The groups name you want to extra from the regex, joined by ','.
     required: false
     default: ''
+  output_joiner:
+    description: The joiner of output `values`.
+    required: false
+    default: '@@REA@@'
 outputs:
   matched:
     description: if the `message` is matched by `regex` this is 'true', otherwise is 'false'.
   values:
-    description: the captured group values, joined by '@@REA@@'.
+    description: the captured group values, joined by 'output_joiner'.
 runs:
   using: node20
   main: dist/main.js
