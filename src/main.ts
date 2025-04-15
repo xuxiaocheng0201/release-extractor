@@ -3,6 +3,7 @@ import * as core from '@actions/core';
 function doRegex(message: string, regex: string, groups: string[]): { matched: boolean, values: string[] } {
     const reg = RegExp(regex, 'g');
     const result = reg.exec(message);
+    core.debug(`Regex tested: ${result}`);
     if (result === null) {
         return { matched: false, values: [], }
     }
@@ -37,7 +38,7 @@ export function run() {
         const result = doRegex(message, regex, groups);
 
         core.setOutput("matched", result.matched);
-        core.setOutput("values", result.values.join("output_joiner"));
+        core.setOutput("values", result.values.join(output_joiner));
     } catch (error: unknown) {
         core.setFailed((error as Error).message);
     }

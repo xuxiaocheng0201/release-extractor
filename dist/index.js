@@ -25687,6 +25687,7 @@ const core = __importStar(__nccwpck_require__(7484));
 function doRegex(message, regex, groups) {
     const reg = RegExp(regex, 'g');
     const result = reg.exec(message);
+    core.debug(`Regex tested: ${result}`);
     if (result === null) {
         return { matched: false, values: [], };
     }
@@ -25718,7 +25719,7 @@ function run() {
         console.debug(`groups: ${groups}`);
         const result = doRegex(message, regex, groups);
         core.setOutput("matched", result.matched);
-        core.setOutput("values", result.values.join("output_joiner"));
+        core.setOutput("values", result.values.join(output_joiner));
     }
     catch (error) {
         core.setFailed(error.message);
