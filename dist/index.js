@@ -25714,9 +25714,6 @@ function run() {
         const group = core.getInput('group');
         const output_joiner = core.getInput('output_joiner');
         const groups = group.length === 0 ? [] : group.split(',');
-        console.debug(`message: ${message}`);
-        console.debug(`regex: ${regex}`);
-        console.debug(`groups: ${groups}`);
         const result = doRegex(message, regex, groups);
         core.setOutput("matched", result.matched);
         core.setOutput("values", result.values.join(output_joiner));
@@ -27640,12 +27637,22 @@ module.exports = parseParams
 /******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nccwpck_require__(1730);
-/******/ 	module.exports = __webpack_exports__;
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+var exports = __webpack_exports__;
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+/**
+ * The entrypoint for the action. This file simply imports and runs the action's main logic.
+ */
+const main_js_1 = __nccwpck_require__(1730);
+/* istanbul ignore next */
+(0, main_js_1.run)();
+
+})();
+
+module.exports = __webpack_exports__;
 /******/ })()
 ;

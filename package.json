@@ -4,7 +4,7 @@
   "description": "Use Regex to test Git commit message and determine whether the action needs to be executed.",
   "private": true,
   "license": "MIT",
-  "main": "src/main.ts",
+  "main": "src/index.ts",
   "scripts": {
     "package": "ncc build",
     "local-action": "npx @github/local-action . src/main.ts .env"
