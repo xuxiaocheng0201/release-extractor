@@ -3,3 +3,10 @@
 !/.gitignore
 !/LICENSE
 !/Readme.md
+
+!/src
+!/package.json
+!/package-lock.json
+!/tsconfig.json
+
+!/action.yml

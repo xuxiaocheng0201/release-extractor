@@ -1,0 +1,22 @@
+name: Release Extractor Action
+description: Use Regex to test Git commit message and determine whether the action needs to be executed.
+inputs:
+  message:
+    description: Git commit message.
+    required: false
+    default: ${{ github.event.head_commit.message }}
+  regex:
+    description: Regex pattern.
+    required: true
+  group:
+    description: The groups name you want to extra from the regex, joined by ','.
+    required: false
+    default: ''
+outputs:
+  matched:
+    description: if the `message` is matched by `regex` this is 'true', otherwise is 'false'.
+  values:
+    description: the captured group values, joined by '@@REA@@'.
+runs:
+  using: node20
+  main: dist/main.js

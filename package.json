@@ -1,0 +1,19 @@
+{
+  "name": "release-extractor",
+  "version": "1.0.0",
+  "description": "Use Regex to test Git commit message and determine whether the action needs to be executed.",
+  "private": true,
+  "license": "MIT",
+  "main": "src/main.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuxiaocheng0201/release-extractor.git"
+  },
+  "dependencies": {
+    "typescript": "^5.8.3",
+    "@actions/core": "^1.11.1"
+  }
+}
