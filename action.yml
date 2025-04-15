@@ -1,5 +1,8 @@
 name: Release Extractor Action
 description: Use Regex to test Git commit message and determine whether the action needs to be executed.
+branding:
+  icon: git-commit
+  color: orange
 inputs:
   message:
     description: Git commit message.
