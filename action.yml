@@ -26,4 +26,4 @@ outputs:
     description: the captured group values, joined by 'output_joiner'.
 runs:
   using: node20
-  main: dist/main.js
+  main: dist/index.js

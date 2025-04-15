@@ -18,7 +18,7 @@ jobs:
     name: Check version
     runs-on: ubuntu-latest
     steps:
-      - uses: xuxiaocheng0201/release-extractor@v1.1.0
+      - uses: xuxiaocheng0201/release-extractor@v1.1.1
         id: check-version
         with:
           regex: "Release v(?<version>[0-9]\\.[0-9]\\.[0-9])"
