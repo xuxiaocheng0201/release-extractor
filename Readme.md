@@ -30,7 +30,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     needs: check-version
-    if: needs.check-version.outputs.released
+    if: needs.check-version.outputs.released == 'true'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
