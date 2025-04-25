@@ -36,3 +36,31 @@ jobs:
         uses: actions/checkout@v4
       # other steps to build
 ```
+
+# Another choice
+```yml
+jobs:
+  check-version:
+    name: Check version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extra version
+        id: check-version
+        shell: python
+        run: |
+          import re
+          import os
+          match = re.search(pattern="Release ([0-9]+\\.[0-9]+\\.[0-9]+)", string=os.getenv('message'))
+          with open(os.getenv('GITHUB_OUTPUT'), "w") as f:
+            if not match:
+              f.write('matched=false\n')
+            else:
+              version = match.group(1)
+              f.write('matched=true\n')
+              f.write(f'values={version}\n')
+        env:
+          message: ${{ github.event.head_commit.message }}
+    outputs:
+      released: ${{ steps.check-version.outputs.matched }}
+      version: ${{ steps.check-version.outputs.values }}
+```
